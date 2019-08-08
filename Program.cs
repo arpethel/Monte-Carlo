@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using System.Collections.Generic;
 
 namespace Monte_Carlo
 {
@@ -9,14 +10,15 @@ namespace Monte_Carlo
         //{
         //    return Math.Sqrt(this.x * this.x + this.y * this.y);
         //}
-        public double Calculate(ArrayList list)
+        public void Calculate(List<Point> list)
         {
 
             // TODO
             for (int i = 0; i < list.Count; i++)
             {
                 Point p = new Point();
-                //list[i]
+                p = list[i];
+                Console.WriteLine(p.x);
             }
             //if (GetHypotenuse() < 1)
             //{
@@ -27,13 +29,16 @@ namespace Monte_Carlo
             //{
             //    // Orange
             //}
-            return Math.PI;
+            
         }
 
         //public double 
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            RandomNumGen list = new RandomNumGen();
+            Program t = new Program();
+            
+            t.Calculate(list.listOfPoints());
         }
     }
 }
