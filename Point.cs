@@ -2,11 +2,10 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace ApproximatingPI
+namespace Monte_Carlo
 {
     struct Point
     {
-
         private double x { get; }
         private double y { get; }
         public string color;
