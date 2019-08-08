@@ -7,8 +7,6 @@ namespace ApproximatingPI
 {
     class RandomNumGen
     {
-
-
         public ArrayList listOfPoints()
         {
             //creates an arraylist with a capacity of the amount of numbers we want to add
