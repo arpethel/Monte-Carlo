@@ -6,15 +6,15 @@ namespace Monte_Carlo
 {
     struct Point
     {
-        private double x { get; }
-        private double y { get; }
-        public string color;
+        public double x { get; }
+        public double y { get; }
+        public string color { get; set; }
 
         public Point(Random r)
         {
-            this.x = r.NextDouble();
-            this.y = r.NextDouble();
-            this.color = "";
+            x = r.NextDouble();
+            y = r.NextDouble();
+            color = "";
         }
 
         public override string ToString()
