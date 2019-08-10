@@ -1,35 +1,42 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 
 namespace Monte_Carlo
 {
     class Program
     {
-        //public double GetHypotenuse()
-        //{
-        //    return Math.Sqrt(this.x * this.x + this.y * this.y);
-        //}
-        public void Calculate(List<Point> list)
+        public double gethypotenuse(Point point)
         {
-
-            // TODO
+            return Math.Sqrt(Math.Pow(point.x, 2) + Math.Pow(point.y, 2));
+        }
+        //the return type is a tuple that can hold multiple values of any type
+        public (double,int) Calculate(List<Point> list)
+        {
+            double red = 0;
+            double blue = 0;
+            double estimatedPi;
             for (int i = 0; i < list.Count; i++)
             {
                 Point p = new Point();
                 p = list[i];
-                Console.WriteLine(p.x);
-            }
-            //if (GetHypotenuse() < 1)
-            //{
-            //    // Pink
-            //}
+                double hypotenuse = gethypotenuse(p);
+                
+                if (hypotenuse < 1)
+                {
+                    p.color = "red";
+                    red++;
+                }
 
-            //if (GetHypotenuse() >= 1)
-            //{
-            //    // Orange
-            //}
-            
+                if (hypotenuse >= 1)
+                {
+                    p.color = "blue";
+                    blue++;
+                }
+            }
+            Console.WriteLine($"# of points in the red: {red}\n# of points in the blue: {blue}\n");
+            estimatedPi = (red / blue);
+            //here we are using a tuple to return 2 seperate values, our extimated pi and the sample size(which is the size of the list)
+            return (estimatedPi, list.Count);
         }
 
         //public double 
@@ -38,7 +45,10 @@ namespace Monte_Carlo
             RandomNumGen list = new RandomNumGen();
             Program t = new Program();
             
-            t.Calculate(list.listOfPoints());
+            //here we create a tuple that stores the first returned value as estimated pi and the 2nd returned value as the length 
+            (double estimatedPi, int length) = t.Calculate(list.listOfPoints(10000));
+            double deviation = Math.PI - estimatedPi;
+            Console.WriteLine($"Estimated pi is {estimatedPi} our deviation is {deviation}\nsample size was {length}");
         }
     }
 }

@@ -1,18 +1,17 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Text;
+
 
 namespace Monte_Carlo
 {
     class RandomNumGen
     {
-        public List<Point> listOfPoints()
+        public List<Point> listOfPoints(int numOfPoints)
         {
             //creates an arraylist with a capacity of the amount of numbers we want to add
-            List<Point> list = new List<Point>(10);
+            List<Point> list = new List<Point>(numOfPoints);
 
-            for (int x = 0; x <= 10; x++)
+            for (int x = 0; x < numOfPoints; x++)
             {
                 Random ran = new Random();
                 Point points = new Point(ran);
@@ -20,5 +19,8 @@ namespace Monte_Carlo
             }
             return list;
         }
+
+        
     }
+
 }
