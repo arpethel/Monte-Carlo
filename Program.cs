@@ -6,39 +6,41 @@ namespace Monte_Carlo
 {
     class Program
     {
-        //public double GetHypotenuse()
-        //{
-        //    return Math.Sqrt(this.x * this.x + this.y * this.y);
-        //}
-        public void Calculate(List<Point> list)
+        public double GetHypotenuse(Point p)
         {
+            return Math.Sqrt(p.x * p.x + p.y * p.y);
+        }
+        public double Calculate(List<Point> list)
+        {
+            double red = 0;
+            double blue = 0;
 
-            // TODO
             for (int i = 0; i < list.Count; i++)
             {
                 Point p = new Point();
                 p = list[i];
-                Console.WriteLine(p.x);
-            }
-            //if (GetHypotenuse() < 1)
-            //{
-            //    // Pink
-            //}
 
-            //if (GetHypotenuse() >= 1)
-            //{
-            //    // Orange
-            //}
-            
+                if (GetHypotenuse(p) < 1)
+                {
+                    p.color = "Red";
+                    red++;
+                }
+
+                if (GetHypotenuse(p) >= 1)
+                {
+                    p.color = "Blue";
+                    blue++;
+                }
+            }
+            return red / blue;
         }
 
-        //public double 
         static void Main(string[] args)
         {
             RandomNumGen list = new RandomNumGen();
             Program t = new Program();
-            
-            t.Calculate(list.listOfPoints());
+
+            Console.WriteLine(t.Calculate(list.listOfPoints()));
         }
     }
 }

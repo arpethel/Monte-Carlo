@@ -9,10 +9,9 @@ namespace Monte_Carlo
     {
         public List<Point> listOfPoints()
         {
-            //creates an arraylist with a capacity of the amount of numbers we want to add
-            List<Point> list = new List<Point>(10);
+            List<Point> list = new List<Point>(10000);
 
-            for (int x = 0; x <= 10; x++)
+            for (int x = 0; x <= 10000; x++)
             {
                 Random ran = new Random();
                 Point points = new Point(ran);
